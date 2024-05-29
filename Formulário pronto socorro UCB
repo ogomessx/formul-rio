@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Triagem de Pronto Socorro UCB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group-radio {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .form-group-radio label {
+            margin-right: 10px;
+        }
+        .form-group-radio input {
+            margin-right: 5px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Formulário de Triagem</h2>
+        <form action="/submit-triage" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="data-nascimento">Data de Nascimento:</label>
+                <input type="date" id="data-nascimento" name="data_nascimento" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
+            </div>
+            <div class="form-group">
+                <label for="biossinais">Biossinais (ex: pressão arterial, frequência cardíaca, etc.):</label>
+                <textarea id="biossinais" name="biossinais" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comorbidades">Comorbidades:</label>
+                <textarea id="comorbidades" name="comorbidades" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="sintomas">Sintomas:</label>
+                <textarea id="sintomas" name="sintomas" required></textarea>
+            </div>
+            <div class="form-group-radio">
+                <label>Classificação de Urgência:</label>
+                <label><input type="radio" name="classificacao" value="azul" required> Azul</label>
+                <label><input type="radio" name="classificacao" value="verde" required> Verde</label>
+                <label><input type="radio" name="classificacao" value="amarelo" required> Amarelo</label>
+                <label><input type="radio" name="classificacao" value="laranja" required> Laranja</label>
+                <label><input type="radio" name="classificacao" value="vermelho" required> Vermelho</label>
+            </div>
+            <button type="submit" class="submit-btn">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
